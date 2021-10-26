@@ -8,8 +8,12 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
  end
 
  def create
-  @user = User.all(user_params)
-  render json: @user
+   @user = User.create(user_params)
+        if @user.valid?
+            render json: { user: @user }, status: :created
+        else
+            render json: { error: 'failed to create user' }, status: :unprocessable_entity
+        end
  end
 
  def show
