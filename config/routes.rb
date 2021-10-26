@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   resources :genres
   resources :users
 
-  post "/login", to: "auth#login"
-
-  #signup route
-  post "/signup" => "auth#signup"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+   post "/signup", to: "users#create"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+  get "/user_profile", to: "users#show"
 end
