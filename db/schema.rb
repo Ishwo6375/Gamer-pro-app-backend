@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_26_010313) do
+ActiveRecord::Schema.define(version: 2021_10_26_010519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "likes"
+    t.integer "dislikes"
+    t.string "image"
+    t.string "video_url"
+    t.integer "rating"
+    t.boolean "liked"
+    t.boolean "disliked"
+    t.integer "genre_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "genre_type"
