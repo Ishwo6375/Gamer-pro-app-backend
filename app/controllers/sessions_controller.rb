@@ -1,5 +1,5 @@
-class AuthController < ApplicationController
-
+class SessionsController < ApplicationController
+ 
     def login
       @user = User.first
       render json: @user
@@ -9,6 +9,4 @@ class AuthController < ApplicationController
       @user = User.last
       render json: @user
     end
-  
-    
-  end
+end
