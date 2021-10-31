@@ -4,4 +4,7 @@ has_many :reviews, dependent: :destroy
 has_many :favoritelists, dependent: :destroy
 has_many :like_dislikes
 has_many :games, through: :reviews
+
+
+ validates :username, presence: true, uniqueness: true
 end
