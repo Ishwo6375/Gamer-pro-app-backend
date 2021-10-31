@@ -3,4 +3,5 @@ class GenresController < ApplicationController
         @genres = Genre.all
         render json: @genres
     end
+
 end
